@@ -1,0 +1,6 @@
+(define (acker x y)
+   (cond ((= y 0) 0)
+         ((= x 0) (* 2 y))
+         ((= y 1) 2)
+         (else (acker (- x 1)
+                      (acker x (- y 1))))))
