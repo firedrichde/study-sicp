@@ -1,3 +1,4 @@
+(load "super_abstract.scm")
 (define (even? x)
     (= 0 (remainder x 2)))
 
@@ -152,3 +153,11 @@
 (define (newtons-method f guess)
     (fixed-point (newton-transform f) guess)
     )
+
+;利用horner规则计算单变量多项式
+(define (horner-eval x coefficient-sequence)
+    (accumulate (lambda (this-coeff higher-terms) (+ this-coeff (* x higher-terms)))
+                0
+                coefficient-sequence
+    )
+)
